@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:rdb="http://www.dangdang.com/schema/ddframe/rdb"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/tx
+                        http://www.springframework.org/schema/tx/spring-tx.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context.xsd
+                        http://www.dangdang.com/schema/ddframe/rdb
+                        http://www.dangdang.com/schema/ddframe/rdb/rdb.xsd">
+    <bean id="statFilter" class="com.alibaba.druid.filter.logging.Slf4jLogFilter">
+        <property name="statementExecutableSqlLogEnable" value="false"/>
+        <property name="dataSourceLogEnabled" value="false"/>
+    </bean>
+    <bean id="logFilter" class="com.alibaba.druid.filter.stat.StatFilter">
+        <property name="slowSqlMillis" value="50"/>
+        <property name="logSlowSql" value="true"/>
+        <property name="mergeSql" value="true"/>
+    </bean>
+
+    <bean id="master0" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
+          destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="username" value="root"/>
+        <property name="url" value="jdbc:mysql://10.168.16.116:3306/demodb00"/>
+        <property name="password" value="devApp2013"/>
+        <property name="maxActive" value="10"/>
+        <property name="initialSize" value="1"/>
+        <property name="maxWait" value="60000"/>
+        <property name="minIdle" value="1"/>
+        <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+        <property name="minEvictableIdleTimeMillis" value="300000"/>
+        <property name="validationQuery" value="SELECT 'x'"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="testOnReturn" value="false"/>
+        <property name="poolPreparedStatements" value="true"/>
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="50"/>
+        <property name="maxOpenPreparedStatements" value="100"/>
+        <property name="proxyFilters">
+            <list>
+                <ref bean="statFilter"/>
+                <ref bean="logFilter"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="master1" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
+          destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="username" value="root"/>
+        <property name="url" value="jdbc:mysql://10.168.16.116:3306/demodb01"/>
+        <property name="password" value="devApp2013"/>
+        <property name="maxActive" value="10"/>
+        <property name="initialSize" value="1"/>
+        <property name="maxWait" value="60000"/>
+        <property name="minIdle" value="1"/>
+        <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+        <property name="minEvictableIdleTimeMillis" value="300000"/>
+        <property name="validationQuery" value="SELECT 'x'"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="testOnReturn" value="false"/>
+        <property name="poolPreparedStatements" value="true"/>
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="50"/>
+        <property name="maxOpenPreparedStatements" value="100"/>
+        <property name="proxyFilters">
+            <list>
+                <ref bean="statFilter"/>
+                <ref bean="logFilter"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="master2" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
+          destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="username" value="root"/>
+        <property name="url" value="jdbc:mysql://10.168.16.116:3306/demodb02"/>
+        <property name="password" value="devApp2013"/>
+        <property name="maxActive" value="10"/>
+        <property name="initialSize" value="1"/>
+        <property name="maxWait" value="60000"/>
+        <property name="minIdle" value="1"/>
+        <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+        <property name="minEvictableIdleTimeMillis" value="300000"/>
+        <property name="validationQuery" value="SELECT 'x'"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="testOnReturn" value="false"/>
+        <property name="poolPreparedStatements" value="true"/>
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="50"/>
+        <property name="maxOpenPreparedStatements" value="100"/>
+        <property name="proxyFilters">
+            <list>
+                <ref bean="statFilter"/>
+                <ref bean="logFilter"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="master3" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
+          destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="username" value="root"/>
+        <property name="url" value="jdbc:mysql://10.168.16.116:3306/demodb03"/>
+        <property name="password" value="devApp2013"/>
+        <property name="maxActive" value="10"/>
+        <property name="initialSize" value="1"/>
+        <property name="maxWait" value="60000"/>
+        <property name="minIdle" value="1"/>
+        <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+        <property name="minEvictableIdleTimeMillis" value="300000"/>
+        <property name="validationQuery" value="SELECT 'x'"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="testOnReturn" value="false"/>
+        <property name="poolPreparedStatements" value="true"/>
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="50"/>
+        <property name="maxOpenPreparedStatements" value="100"/>
+        <property name="proxyFilters">
+            <list>
+                <ref bean="statFilter"/>
+                <ref bean="logFilter"/>
+            </list>
+        </property>
+    </bean>
+
+    <rdb:master-slave-data-source id="rbb_0" master-data-source-ref="master0" slave-data-sources-ref="master0"/>
+    <rdb:master-slave-data-source id="rbb_1" master-data-source-ref="master1" slave-data-sources-ref="master1"/>
+    <rdb:master-slave-data-source id="rbb_2" master-data-source-ref="master2" slave-data-sources-ref="master2"/>
+    <rdb:master-slave-data-source id="rbb_3" master-data-source-ref="master3" slave-data-sources-ref="master3"/>
+
+    <rdb:strategy id="dbStrategy" sharding-columns="id"
+                  algorithm-class="com.reapal.config.DbAlgorithm"/>
+
+    <rdb:strategy id="userTableStrategy" sharding-columns="id" algorithm-expression="user_${id.longValue() % 2}"/>
+
+    <rdb:data-source id="shardingDataSource">
+        <rdb:sharding-rule data-sources="rbb_0,rbb_1,rbb_2,rbb_3">
+            <rdb:table-rules>
+                <rdb:table-rule logic-table="user" actual-tables="user_${0..1}"
+                                database-strategy="dbStrategy" table-strategy="userTableStrategy"/>
+            </rdb:table-rules>
+        </rdb:sharding-rule>
+    </rdb:data-source>
+
+</beans>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="sharding-jdbc.xml"/>
+    <!--整合spring与mybatis-->
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="shardingDataSource"/>
+        <property name="configLocation" value="classpath:/META-INF/mybatis.xml"></property>
+        <property name="typeAliasesPackage" value="com.reapal.model"></property>
+        <property name="mapperLocations" value="classpath*:/META-INF/mybatis/*.xml"></property>
+    </bean>
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.reapal.mapper"></property>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+
+</beans>

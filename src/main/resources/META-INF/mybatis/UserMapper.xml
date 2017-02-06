@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.reapal.mapper.UserMapper">
+
+    <insert id="insertOne" parameterType="com.reapal.model.UserEntity">
+        INSERT INTO user(id, name,age) VALUE(#{id},#{name},#{age})
+    </insert>
+
+    <select id="selectByPk" resultType="com.reapal.model.UserEntity" parameterType="java.lang.Integer">
+        select * from user where id=#{id}
+    </select>
+
+</mapper>
+
+
