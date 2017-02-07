@@ -138,16 +138,15 @@
     <rdb:master-slave-data-source id="rbb_2" master-data-source-ref="master2" slave-data-sources-ref="master2"/>
     <rdb:master-slave-data-source id="rbb_3" master-data-source-ref="master3" slave-data-sources-ref="master3"/>
 
-    <rdb:strategy id="dbStrategy" sharding-columns="id"
-                  algorithm-class="com.reapal.config.DbAlgorithm"/>
+    <rdb:strategy id="dbStrategy" sharding-columns="id" algorithm-class="com.reapal.config.DbAlgorithm"/>
 
-    <rdb:strategy id="userTableStrategy" sharding-columns="id" algorithm-expression="user_${id.longValue() % 2}"/>
+    <rdb:strategy id="idStrategy" sharding-columns="id" algorithm-class="com.reapal.config.TbAlgorithm"/>
 
     <rdb:data-source id="shardingDataSource">
         <rdb:sharding-rule data-sources="rbb_0,rbb_1,rbb_2,rbb_3">
             <rdb:table-rules>
                 <rdb:table-rule logic-table="user" actual-tables="user_${0..1}"
-                                database-strategy="dbStrategy" table-strategy="userTableStrategy"/>
+                                database-strategy="dbStrategy" table-strategy="idStrategy"/>
             </rdb:table-rules>
         </rdb:sharding-rule>
     </rdb:data-source>

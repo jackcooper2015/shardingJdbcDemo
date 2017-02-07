@@ -19,9 +19,6 @@
                 </bean>
             </array>
         </property>
-        <!-- oracle 添加
-        <property name="dbType" value="oracle" />
-        -->
     </bean>
 
     <!-- 加载mapper.xml接口配置文件 -->

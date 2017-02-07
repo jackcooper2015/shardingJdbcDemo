@@ -8,13 +8,13 @@ import java.util.Collection;
 /**
  * Created by jack-cooper on 2017/2/6.
  */
-public class DbAlgorithm implements SingleKeyDatabaseShardingAlgorithm<Integer> {
+public class DbAlgorithm implements SingleKeyDatabaseShardingAlgorithm<Long> {
 
     @Override
-    public String doEqualSharding(Collection<String> collection, ShardingValue<Integer> shardingValue) {
-        int id = shardingValue.getValue();
-
-        int index = (id/2)% 4;
+    public String doEqualSharding(Collection<String> collection, ShardingValue<Long> shardingValue) {
+        Long id = shardingValue.getValue()%10000;
+        int a = id.intValue();
+        int index = (a/2)% 4;
 
         for (String each : collection) {
             if (each.endsWith(index + "")) {
@@ -25,12 +25,12 @@ public class DbAlgorithm implements SingleKeyDatabaseShardingAlgorithm<Integer> 
     }
 
     @Override
-    public Collection<String> doInSharding(Collection<String> collection, ShardingValue<Integer> shardingValue) {
+    public Collection<String> doInSharding(Collection<String> collection, ShardingValue<Long> shardingValue) {
         return null;
     }
 
     @Override
-    public Collection<String> doBetweenSharding(Collection<String> collection, ShardingValue<Integer> shardingValue) {
+    public Collection<String> doBetweenSharding(Collection<String> collection, ShardingValue<Long> shardingValue) {
         return null;
     }
 }

@@ -19,7 +19,7 @@ drop database if exists demodb00;
 CREATE database demodb00 DEFAULT CHARACTER SET utf8;
 
 CREATE TABLE demodb00.user_0 (
-  id int(11) NOT NULL AUTO_INCREMENT,
+  id bigint(64) NOT NULL,
   name varchar(100) DEFAULT NULL,
   age int(11) DEFAULT NULL,
   PRIMARY KEY (id),
@@ -27,7 +27,7 @@ CREATE TABLE demodb00.user_0 (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE demodb00.user_1 (
-  id int(11) NOT NULL AUTO_INCREMENT,
+  id bigint(64) NOT NULL,
   name varchar(100) DEFAULT NULL,
   age int(11) DEFAULT NULL,
   PRIMARY KEY (id),
@@ -41,7 +41,7 @@ drop database if exists demodb01;
 CREATE database demodb01 DEFAULT CHARACTER SET utf8;
 
 CREATE TABLE demodb01.user_0 (
-  id int(11) NOT NULL AUTO_INCREMENT,
+  id bigint(64) NOT NULL,
   name varchar(100) DEFAULT NULL,
   age int(11) DEFAULT NULL,
   PRIMARY KEY (id),
@@ -49,7 +49,7 @@ CREATE TABLE demodb01.user_0 (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE demodb01.user_1 (
-  id int(11) NOT NULL AUTO_INCREMENT,
+  id bigint(64) NOT NULL,
   name varchar(100) DEFAULT NULL,
   age int(11) DEFAULT NULL,
   PRIMARY KEY (id),
@@ -64,7 +64,7 @@ drop database if exists demodb02;
 CREATE database demodb02 DEFAULT CHARACTER SET utf8;
 
 CREATE TABLE demodb02.user_0 (
-  id int(11) NOT NULL AUTO_INCREMENT,
+  id bigint(64) NOT NULL,
   name varchar(100) DEFAULT NULL,
   age int(11) DEFAULT NULL,
   PRIMARY KEY (id),
@@ -72,7 +72,7 @@ CREATE TABLE demodb02.user_0 (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE demodb02.user_1 (
-  id int(11) NOT NULL AUTO_INCREMENT,
+  id bigint(64) NOT NULL,
   name varchar(100) DEFAULT NULL,
   age int(11) DEFAULT NULL,
   PRIMARY KEY (id),
@@ -85,7 +85,7 @@ drop database if exists demodb03;
 CREATE database demodb03 DEFAULT CHARACTER SET utf8;
 
 CREATE TABLE demodb03.user_0 (
-  id int(11) NOT NULL AUTO_INCREMENT,
+  id bigint(64) NOT NULL,
   name varchar(100) DEFAULT NULL,
   age int(11) DEFAULT NULL,
   PRIMARY KEY (id),
@@ -93,7 +93,7 @@ CREATE TABLE demodb03.user_0 (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE demodb03.user_1 (
-  id int(11) NOT NULL AUTO_INCREMENT,
+  id bigint(64) NOT NULL,
   name varchar(100) DEFAULT NULL,
   age int(11) DEFAULT NULL,
   PRIMARY KEY (id),
