@@ -14,7 +14,7 @@ public class DbAlgorithm implements SingleKeyDatabaseShardingAlgorithm<Integer> 
     public String doEqualSharding(Collection<String> collection, ShardingValue<Integer> shardingValue) {
         int id = shardingValue.getValue();
 
-        int index = id % 4;
+        int index = (id/2)% 4;
 
         for (String each : collection) {
             if (each.endsWith(index + "")) {

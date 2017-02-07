@@ -1,26 +1,34 @@
 package main;
 
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.reapal.mapper.UserMapper;
+import com.reapal.model.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.List;
+import java.util.Random;
 
 /**
  * Created by jack-cooper on 2017/2/6.
  */
 public class Main {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring-application.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-application.xml");
+        context.start();
+
 
         UserMapper mapper = context.getBean(UserMapper.class);
-//        mapper.insertOne(new UserEntity(9, "xx", 11));
-//        mapper.insertOne(new UserEntity(10, "xxzzz", 11));
-//        mapper.insertOne(new UserEntity(11, "xxzzz", 11));
-//        mapper.insertOne(new UserEntity(12, "xxzzz", 11));
+        for (int i = 0; i < 9999; i++){
+            mapper.insert(new User(i, "jackcooper"+i, new Random(100).nextInt()));
+        }
+        User user = new User();
+        user.setAge(13);
+        List<User> users = mapper.selectList(new EntityWrapper<User>());
+        for (User u :users ) {
+            System.out.println("u = " + u);
+        }
 
-        System.out.println(mapper.selectById(9));
-        System.out.println(mapper.selectById(10));
-        System.out.println(mapper.selectById(11));
-        System.out.println(mapper.selectById(12));
     }
 }
