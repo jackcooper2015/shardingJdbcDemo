@@ -1,13 +1,11 @@
 package com.reapal.mapper;
 
-import com.reapal.model.UserEntity;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.reapal.model.User;
 
 /**
  * Created by jack-cooper on 2017/2/6.
  */
-public interface UserMapper {
+public interface UserMapper  extends BaseMapper<User>{
 
-    int insertOne(UserEntity user);
-
-    UserEntity selectByPk(int id);
 }

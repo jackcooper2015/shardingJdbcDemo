@@ -12,6 +12,9 @@
                         http://www.springframework.org/schema/context/spring-context.xsd
                         http://www.dangdang.com/schema/ddframe/rdb
                         http://www.dangdang.com/schema/ddframe/rdb/rdb.xsd">
+
+    <context:property-placeholder location="classpath:db.properties" ignore-unresolvable="true"/>
+
     <bean id="statFilter" class="com.alibaba.druid.filter.logging.Slf4jLogFilter">
         <property name="statementExecutableSqlLogEnable" value="false"/>
         <property name="dataSourceLogEnabled" value="false"/>
@@ -25,7 +28,7 @@
     <bean id="master0" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
           destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="username" value="root"/>
+        <property name="username" value="${db0.username}"/>
         <property name="url" value="jdbc:mysql://10.168.16.116:3306/demodb00"/>
         <property name="password" value="devApp2013"/>
         <property name="maxActive" value="10"/>

@@ -1,22 +1,26 @@
 package com.reapal.model;
 
+import com.baomidou.mybatisplus.annotations.TableId;
+
 import java.io.Serializable;
 
 /**
  * Created by jack-cooper on 2017/2/6.
  */
-public class UserEntity implements Serializable{
+public class User implements Serializable{
+
+    @TableId
     private int id;
 
     private String name;
 
     private int age;
 
-    public UserEntity() {
+    public User() {
 
     }
 
-    public UserEntity(int id, String name, int age) {
+    public User(int id, String name, int age) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -50,7 +54,7 @@ public class UserEntity implements Serializable{
 
     @Override
     public String toString() {
-        return "UserEntity{" +
+        return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
