@@ -29,8 +29,8 @@
           destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="username" value="${db0.username}"/>
-        <property name="url" value="jdbc:mysql://10.168.16.116:3306/demodb00"/>
-        <property name="password" value="devApp2013"/>
+        <property name="url" value="${db0.url}"/>
+        <property name="password" value="${db0.password}"/>
         <property name="maxActive" value="10"/>
         <property name="initialSize" value="1"/>
         <property name="maxWait" value="60000"/>
@@ -55,9 +55,9 @@
     <bean id="master1" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
           destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="username" value="root"/>
-        <property name="url" value="jdbc:mysql://10.168.16.116:3306/demodb01"/>
-        <property name="password" value="devApp2013"/>
+        <property name="username" value="${db1.username}"/>
+        <property name="url" value="${db1.url}"/>
+        <property name="password" value="${db1.password}"/>
         <property name="maxActive" value="10"/>
         <property name="initialSize" value="1"/>
         <property name="maxWait" value="60000"/>
@@ -82,9 +82,9 @@
     <bean id="master2" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
           destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="username" value="root"/>
-        <property name="url" value="jdbc:mysql://10.168.16.116:3306/demodb02"/>
-        <property name="password" value="devApp2013"/>
+        <property name="username" value="${db2.username}"/>
+        <property name="url" value="${db2.url}"/>
+        <property name="password" value="${db2.password}"/>
         <property name="maxActive" value="10"/>
         <property name="initialSize" value="1"/>
         <property name="maxWait" value="60000"/>
@@ -109,9 +109,9 @@
     <bean id="master3" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
           destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="username" value="root"/>
-        <property name="url" value="jdbc:mysql://10.168.16.116:3306/demodb03"/>
-        <property name="password" value="devApp2013"/>
+        <property name="username" value="${db3.username}"/>
+        <property name="url" value="${db3.url}"/>
+        <property name="password" value="${db3.password}"/>
         <property name="maxActive" value="10"/>
         <property name="initialSize" value="1"/>
         <property name="maxWait" value="60000"/>
